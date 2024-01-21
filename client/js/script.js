@@ -11,6 +11,39 @@ var myArray = ["Remember there are many as good as you but nobody better!",
 ]
 
 function change_quote() {
-    document.querySelector("button").innerHTML = 
-    myArray[Math.floor(Math.random()*myArray.length)];
+    document.querySelector("button").innerHTML = random_quote();
+    
 }
+
+document.getElementById("showQuote").textContent = random_quote();
+
+function random_quote() {
+    let quote = myArray[Math.floor(Math.random()*myArray.length)];
+    return quote;
+}
+
+var icons = document.querySelectorAll('.icon');
+
+icons.forEach(icon => {
+    // Pause all icons when the mouse enters any icon
+    icon.addEventListener('mouseenter', () => {
+        console.log("mouse entered");
+        icons.forEach(i => i.style.animationPlayState = 'paused');
+    });
+});
+
+//Resume all icons when the mouse leaves the icon container
+document.querySelector('.icon-container').addEventListener('mouseleave', () => {
+    icons.forEach(i => i.style.animationPlayState = 'running');
+});
+
+
+
+
+
+
+
+
+
+
+
